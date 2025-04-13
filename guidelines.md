@@ -170,7 +170,10 @@ Environment variables files are a sensible exception to the rule. These should b
 
 Examples of secure password managers: [Bitwarden](https://bitwarden.com/help/is-bitwarden-audited/), [1Password](https://support.1password.com/security-assessments/), [Keepass](https://keepass.info/ratings.html).
 
-Guidelines for strong passwords: https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords
+Guidelines for strong passwords:
+
+- https://www.inside.dtu.dk/en/medarbejder/it-og-telefoni/informationssikkerhed/sikker-adfaerd/sikker-adgangskode
+- https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords
 
 ## sudo
 
