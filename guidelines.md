@@ -240,8 +240,7 @@ I create a file in _/etc/apt/apt.conf.d_.
 ```
 $ cat /etc/apt/apt.conf.d/51unattended-upgrades
 Unattended-Upgrade::Origins-Pattern {
-        "origin=Debian,codename=${distro_codename},label=Debian-Security";
-        "origin=Debian,codename=${distro_codename}-security,label=Debian-Security";
+        "origin=${distro_id},codename=${distro_codename}-security";
 };
 Unattended-Upgrade::Automatic-Reboot "true";
 Unattended-Upgrade::Automatic-Reboot-Time "04:00";
@@ -254,9 +253,6 @@ $ cat /etc/apt/apt.conf.d/20auto-upgrades
 APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
 ```
-
-> [!CAUTION]
-> The configuration above for _Unattended-Upgrade::Origins-Pattern_ works in Debian. TODO: verify for Ubuntu
 
 ### Systems running on demand
 
