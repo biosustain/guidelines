@@ -63,7 +63,7 @@ When assigning a role at the resource group scope, consider using _Time-bound_ u
 
 ### On privileged roles and resource groups
 
-Privileged roles like _Contributor_ and _Owner_ enable for all kinds of operations. Including the **modification** and the **deletion** of existing resources.
+Privileged roles such as _Contributor_ and _Owner_ enable for all kinds of operations. Including the **modification** and the **deletion** of existing resources.
 
 Assigning these roles poses a risk to the integrity of the platform.
 
@@ -71,7 +71,7 @@ Users should be provided with the least privileged role which still fulfills the
 
 Role _Contributor without deletes_ mitigates the risks, but does not protect against **modifications**.
 
-Resource groups should be project-wide instead of team-wide, while following a sensible naming convention. It should be clear to what team a given project belongs. Tags help where naming is not enough.
+Resource groups (RGs) should be project-wide rather than team-wide, following a sensible naming convention that clearly indicates which team owns a given project. Tags can provide additional clarity.
 
 For example, for a given team _Foo_ and projects _Bar 1_ and _Bar 2_, one could create the following project-wide resource groups:
 
@@ -80,7 +80,10 @@ For example, for a given team _Foo_ and projects _Bar 1_ and _Bar 2_, one could 
 
 Role _Role Based Access Control Administrator_ provides with the ability to add role assignments.
 
-The general recommendation is that resource groups should have only the people involved in most if not all of the resources. In this setup, the risks to the integrity of the platform are minimized.
+The general recommendation is that a resource group should include only the people involved in most (if not all) of its resources.
+
+> [!NOTE]
+> Current team-wide RGs will not necessarily be fully migrated into project-wide RGs. I understand that some resources might pertain to a team and not to a project. In that scenario a team-wide RG makes sense, but it must exercise extra care in respecting the PoLP.
 
 > [!WARNING]
 > To Azure administrators:
@@ -113,17 +116,17 @@ To stop and deallocate a VM, navigate to its _Overview_ page and click _Stop_. G
 
 Creating a VM via the Azure portal results in the creation of more than one resource: a virtual machine, a disk, a network security group, etc.
 
-The resource of type _Network security group_ (NSG) is the firewall. Navigate to its _Settings_, _Inbound security rules_.
-
-> [!NOTE]
-> You can reach the same settings from the VM page: _Networking_, _Network settings_.
+The resource of type _Network security group_ (NSG) is the firewall. Navigate to its _Settings_, _Inbound security rules_. The same settings are reachable from the VM page: _Networking_, _Network settings_.
 
 Ensure that SSH is not allowed to the whole Internet. Meaning: if you see a rule for SSH, and the _Source_ field is too permissive (i.e. `*`), this needs to change.
+
+Click on the rule, then _Source_, and select _My IP Address_. Click _Save_. Once the request is successful, it might still take some seconds before the rule propagates to the network.
 
 > [!IMPORTANT]
 > Modifying firewall rules requires role _Network Contributor_ on the NSG resource.
 
-Click on the rule, then _Source_, and select _My IP Address_. Click _Save_. Once the request is successful, it might still take some seconds before the rule propagates to the network.
+> [!NOTE]
+> Firewalls are not limited to virtual machines: they also apply to resources like storage accounts, container registries, databases, etc. These resources must be securely configured as well.
 
 #### Naming conventions for firewall rules
 
@@ -150,6 +153,12 @@ Name rules according to their purpose. For example:
 
 In general, expose only the ports that need to be exposed, and allow access only to the required IP addresses.
 
+### Data storage
+
+Virtual machines are not suitable for long-term data storage.
+
+TODO: guidelines for data storage.
+
 ### Auto-shutdown
 
 In the _Overview_ page (and within the submenu _Operations_) you will find _Auto-shutdown_. Enable it whenever possible.
@@ -166,7 +175,10 @@ Do not reuse the same secret across different accounts or services.
 
 Do not store or hard-code secrets in codebases or any plaintext documents.
 
-Environment variables files are a sensible exception to the rule. These should be accessible only by the owner (e.g. `chmod 600 .env`).
+Environment variables files are a sensible exception to the rule: these might contain secrets.
+
+> [!CAUTION]
+> Environment variables files must be accessible only by the owner (e.g. `chmod 600 .env`) and must be ignored by both _Docker_ and _Git_. See paragraph [Ignoring files in Docker and Git](#ignoring-files-in-docker-and-git).
 
 Examples of secure password managers: [Bitwarden](https://bitwarden.com/help/is-bitwarden-audited/), [1Password](https://support.1password.com/security-assessments/), [Keepass](https://keepass.info/ratings.html).
 
@@ -175,13 +187,24 @@ Guidelines for strong passwords:
 - https://www.inside.dtu.dk/en/medarbejder/it-og-telefoni/informationssikkerhed/sikker-adfaerd/sikker-adgangskode
 - https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords
 
+### Ignoring files in Docker and Git
+
+Both Docker and Git provide a way to ignore (exclude) files. This eliminates the risk of accidentally copying secrets into Docker images or tracking them in git repositories.
+
+Documentation:
+
+- https://docs.docker.com/build/concepts/context/#dockerignore-files
+- https://git-scm.com/docs/gitignore
+
+A collection of templates for _.gitignore_: https://github.com/github/gitignore
+
 ## sudo
 
 `sudo` allows a permitted user to execute a command as the superuser or another user.
 
 A user can be provided elevated privileges for selected commands.
 
-Imagine a user who needs to list the Docker containers and access the logs. The system administrator creates a file within directory _/etc/sudoers.d_:
+Imagine a user who needs to list Docker containers and access logs. The system administrator can allow the user by creating a file within directory _/etc/sudoers.d_:
 
 ```
 $ sudo cat /etc/sudoers.d/pasdom
@@ -191,7 +214,8 @@ pasdom ALL=(ALL) NOPASSWD: /usr/bin/docker ps *
 
 That allows user _pasdom_ to execute `sudo docker logs` and `sudo docker ps`, with arguments included.
 
-Note that adding users to the `docker` group effectively grants them root access.
+> [!CAUTION]
+> Adding users to the `docker` group effectively grants them full root access.
 
 ## Virtual machines with GPUs
 
