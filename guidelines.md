@@ -159,6 +159,18 @@ Virtual machines are not suitable for long-term data storage.
 
 TODO: guidelines for data storage.
 
+An email from our colleague August Lauridsen, IT Supporter, 2025-05-01:
+
+> If you are using any of the Office 365 cloud apps to collaborate within your group, please make sure that any important data is also saved on the O drive (Department Drive-NNFCB).
+>
+> This is especially relevant for content stored in OneDrive, OneNote, or shared in Teams, as these can often be tied to an individual's personal DTU account. When someone leaves DTU, their account is closed, along with access to any data they created or shared. Shared OneDrive folders and files shared in Teams (if linked to a personal OneDrive account) will also be deleted when the DTU account is closed, even if others have access to them.
+>
+> This can affect, for example, tabs added in a Teams channel that appear to be part of the group's shared space but are actually linked to a personal account.
+>
+> If you're unsure whether your shared folders, notes, or Teams files are dependent on your personal account and might break when you leave, feel free to stop by our office or send us an e-mail at itsupport@biosustain.dtu.dk
+>
+> We're happy to take a look with you.
+
 ### Auto-shutdown
 
 In the _Overview_ page (and within the submenu _Operations_) you will find _Auto-shutdown_. Enable it whenever possible.
