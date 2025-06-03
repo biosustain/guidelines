@@ -4,7 +4,7 @@ Author: Pasquale Domenico Colaianni, pasdom@biosustain.dtu.dk
 
 This document outlines guidelines for employees and collaborators at CFB, with the goal of educating readers and minimizing the likelihood of issues arising with our computational platforms.
 
-It is a work in progress, as I am transferring information from my personal notes into it.
+I will keep this document up-to-date with the needs of the center.
 
 You are welcome to contact me for corrections and improvements. I understand that what has worked for me might not necessarily work for all: in that case, I encourage engaging in a discussion.
 
@@ -53,6 +53,7 @@ Examples of built-in roles:
 A description of each role: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
 
 Examples of custom roles (created by us):
+
 - _Contributor without deletes_: same as _Contributor_ but without the ability to delete resources.
 - _Virtual Machine Start-Restart-Stop_: it allows a user to start, restart and stop a virtual machine.
 
@@ -66,8 +67,6 @@ When assigning a role at the resource group scope, consider using _Time-bound_ u
 Privileged roles such as _Contributor_ and _Owner_ enable for all kinds of operations. Including the **modification** and the **deletion** of existing resources.
 
 Assigning these roles poses a risk to the integrity of the platform.
-
-Users should be provided with the least privileged role which still fulfills the requirements.
 
 Role _Contributor without deletes_ mitigates the risks, but does not protect against **modifications**.
 
@@ -332,7 +331,7 @@ By convention, systems expose SSH on port 22.
 If I am unable to connect to a system, I check that:
 
 - the system is running
-- port 22 TCP is open
+- the SSH port is open
 
 On Linux, I test open ports with `nc`:
 
@@ -358,7 +357,7 @@ sudo timedatectl set-timezone 'Europe/Copenhagen'
 ### Hardened SSH access
 
 ```
-$ cat /etc/ssh/sshd_config.d/60-pasdom.conf
+$ cat /etc/ssh/sshd_config.d/60-hardened-access.conf
 AddressFamily inet
 PasswordAuthentication no
 PermitRootLogin no
