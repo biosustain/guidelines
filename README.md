@@ -274,6 +274,7 @@ I create a file in _/etc/apt/apt.conf.d_.
 
 ```
 $ cat /etc/apt/apt.conf.d/51unattended-upgrades
+#clear Unattended-Upgrade::Allowed-Origins;
 Unattended-Upgrade::Origins-Pattern {
         "origin=${distro_id},codename=${distro_codename}-security";
 };
