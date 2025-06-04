@@ -290,6 +290,8 @@ APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
 ```
 
+Learn more: https://documentation.ubuntu.com/server/how-to/software/automatic-updates/
+
 ### Systems running on demand
 
 Some systems are used "on demand": these are started, used for several hours or days, and then shut down until the next use.
