@@ -127,6 +127,9 @@ Click on the rule, then _Source_, and select _My IP Address_. Click _Save_. Once
 > [!NOTE]
 > Firewalls are not limited to virtual machines: they also apply to resources like storage accounts, container registries, databases, etc. These resources must be securely configured as well.
 
+> [!NOTE]
+> AIT has also published documentation addressing this topic: https://frontenddtudocumentation.z6.web.core.windows.net/wiki/restrict-network-ports.html
+
 #### Naming conventions for firewall rules
 
 Name rules according to their purpose. For example:
