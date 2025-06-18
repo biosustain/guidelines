@@ -18,14 +18,20 @@ You are welcome to contact me for corrections and improvements. I understand tha
   - [Billing](#billing)
   - [Firewall](#firewall)
     - [Naming conventions for firewall rules](#naming-conventions-for-firewall-rules)
+  - [Data storage](#data-storage)
   - [Auto-shutdown](#auto-shutdown)
 - [Secrets](#secrets)
+  - [Ignoring files in Docker and Git](#ignoring-files-in-docker-and-git)
 - [sudo](#sudo)
 - [Virtual machines with GPUs](#virtual-machines-with-gpus)
 - [Security updates](#security-updates)
   - [Systems running on demand](#systems-running-on-demand)
 - [Operating systems releases](#operating-systems-releases)
+- [Connecting via SSH](#connecting-via-ssh)
 - [System administration](#system-administration)
+  - [Setting the timezone](#setting-the-timezone)
+  - [Hardened SSH access](#hardened-ssh-access)
+  - [More Bash history, enable timestamps](#more-bash-history-enable-timestamps)
 
 ## Principle of least privilege
 
