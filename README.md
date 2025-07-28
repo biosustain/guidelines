@@ -319,6 +319,7 @@ APT::Periodic::Unattended-Upgrade "0";
 And install them manually, before your computation:
 
 ```
+sudo apt update
 sudo unattended-upgrades --verbose
 sudo reboot
 ```
