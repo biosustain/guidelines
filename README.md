@@ -14,6 +14,7 @@ You are welcome to contact me for corrections and improvements. I understand tha
 - [Azure Role Based Access Control (RBAC)](#azure-role-based-access-control-rbac)
   - [On privileged roles and resource groups](#on-privileged-roles-and-resource-groups)
 - [Tags in Azure](#tags-in-azure)
+- [Misleading names for Azure regions](#misleading-names-for-azure-regions)
 - [Virtual machines (VMs) in Azure](#virtual-machines-vms-in-azure)
   - [Billing](#billing)
   - [Firewall](#firewall)
@@ -106,6 +107,14 @@ Tag resources in Azure with the following keys:
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-portal
 
+## Misleading names for Azure regions
+
+_North Europe_ is Ireland and _West Europe_ is Netherlands.
+
+According to latency tests at [Azure Speed Test](https://www.azurespeed.com/Azure/Latency), performance from Kgs. Lyngby is better to West Europe than to North Europe.
+
+Most of us are likely not impacted by these latency differences, but it's still worth knowing.
+
 ## Virtual machines (VMs) in Azure
 
 ### Billing
@@ -165,7 +174,12 @@ In general, expose only the ports that need to be exposed, and allow access only
 
 Virtual machines are not suitable for long-term data storage.
 
+> [!NOTE]
+> Transfers between resources in **different** regions incur additional costs. You can estimate these costs using the _Bandwidth_ product in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+
 TODO: guidelines for data storage.
+
+#### From CFB IT Support
 
 An email from our colleague August Lauridsen, IT Supporter, 2025-05-01:
 
