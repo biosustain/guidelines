@@ -97,6 +97,14 @@ The general recommendation is that a resource group should include only the peop
 > - Do not assign _Contributor_. Instead, use _Contributor without deletes_.
 > - When assigning _Role Based Access Control Administrator_, do not select _Allow user to assign all roles_ under the _Conditions_ tab.
 
+### Adding role assignments
+
+Guide: https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps
+
+You may not have the privileges required to add role assignments. If that is the case, contact the person with role _Owner_ or _Role Based Access Control Administrator_ in the relevant resource group.
+
+You are welcome to write to pasdom@dtu.dk for further assistance.
+
 ## Tags in Azure
 
 Tag resources in Azure with the following keys:
