@@ -21,6 +21,7 @@ You are welcome to contact me for corrections and improvements. I understand tha
     - [Naming conventions for firewall rules](#naming-conventions-for-firewall-rules)
   - [Data storage](#data-storage)
   - [Auto-shutdown](#auto-shutdown)
+- [Site-to-site VPN tunnel](#site-to-site-vpn-tunnel)
 - [Secrets](#secrets)
   - [Ignoring files in Docker and Git](#ignoring-files-in-docker-and-git)
 - [sudo](#sudo)
@@ -206,6 +207,14 @@ An email from our colleague August Lauridsen, IT Supporter, 2025-05-01:
 In the _Overview_ page (and within the submenu _Operations_) you will find _Auto-shutdown_. Enable it whenever possible.
 
 If your computation takes longer than a day, remember to turn it off for the time needed. When the work is done, I encourage re-enabling Auto-shutdown to mitigate unnecessary expenses.
+
+## Site-to-site VPN tunnel
+
+To access resources securely when working away from the office, you must use the DTU VPN.
+
+Resources, including those on Azure, can be made available through the DTU VPN, but this requires action from AIT.
+
+Contact me at pasdom@dtu.dk and CC your team leader. I will coordinate with AIT on your behalf.
 
 ## Secrets
 
