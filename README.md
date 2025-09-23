@@ -172,7 +172,7 @@ Name rules according to their purpose. For example:
 
 - _WEB-DTU_ allows users at DTU's offices to connect to a web server
   - _Source_: `IP Addresses`
-  - _Source IP addresses/CIDR ranges_: `192.38.0.0/16`
+  - _Source IP addresses/CIDR ranges_: `192.38.90.0/24`
   - _Service_: `Custom`
   - _Destination port ranges_: `80,443`
   - _Protocol_: `TCP`
