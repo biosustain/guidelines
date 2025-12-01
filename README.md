@@ -31,6 +31,7 @@ You are welcome to contact me for corrections and improvements. I understand tha
 - [Operating systems releases](#operating-systems-releases)
 - [Connecting via SSH](#connecting-via-ssh)
 - [System administration](#system-administration)
+  - [Computers in laboratories](#computers-in-laboratories)
   - [Setting the timezone](#setting-the-timezone)
   - [Hardened SSH access](#hardened-ssh-access)
   - [More Bash history, enable timestamps](#more-bash-history-enable-timestamps)
@@ -392,6 +393,10 @@ www.google.com [142.250.179.164] 22 (ssh) : Connection timed out
 Instead of `www.google.com`, insert the desired destination IP address.
 
 ## System administration
+
+### Computers in laboratories
+
+See document [Laboratory computer administration and user responsibilities](lab-computer-administration.md).
 
 ### Setting the timezone
 
