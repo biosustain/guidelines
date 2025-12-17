@@ -1,12 +1,12 @@
 # Guidelines
 
-Author: Pasquale Domenico Colaianni, pasdom@biosustain.dtu.dk
+Author: Pasquale Domenico Colaianni, pasdom@dtu.dk, on behalf of the Informatics Platform.
 
-This document outlines guidelines for employees and collaborators at CFB, with the goal of educating readers and minimizing the likelihood of issues arising with our computational platforms.
+This document outlines guidelines for employees and collaborators at BRIGHT, with the goal of educating readers and minimizing the likelihood of issues arising with our computational platforms.
 
-I will keep this document up-to-date with the needs of the center.
+This document is kept up-to-date with the needs of the institute.
 
-You are welcome to contact me for corrections and improvements. I understand that what has worked for me might not necessarily work for all: in that case, I encourage engaging in a discussion.
+Corrections and improvements are welcome. What has worked in one context may not necessarily work for all: in such cases, discussion is encouraged.
 
 ## Table of Contents
 
@@ -91,7 +91,7 @@ Role _Role Based Access Control Administrator_ provides with the ability to add 
 The general recommendation is that a resource group should include only the people involved in most (if not all) of its resources.
 
 > [!NOTE]
-> Current team-wide RGs will not necessarily be fully migrated into project-wide RGs. I understand that some resources might pertain to a team and not to a project. In that scenario a team-wide RG makes sense, but it must exercise extra care in respecting the PoLP.
+> Current team-wide RGs will not necessarily be fully migrated into project-wide RGs.
 
 > [!WARNING]
 > To Azure administrators:
@@ -189,25 +189,23 @@ Virtual machines are not suitable for long-term data storage.
 
 TODO: guidelines for data storage.
 
-#### From CFB IT Support
+#### From BRIGHT IT Support
 
 An email from our colleague August Lauridsen, IT Supporter, 2025-05-01:
 
-> If you are using any of the Office 365 cloud apps to collaborate within your group, please make sure that any important data is also saved on the O drive (Department Drive-NNFCB).
+> If you are using any of the Office 365 cloud apps to collaborate within your group, please make sure that any important data is also saved on the O drive.
 >
 > This is especially relevant for content stored in OneDrive, OneNote, or shared in Teams, as these can often be tied to an individual's personal DTU account. When someone leaves DTU, their account is closed, along with access to any data they created or shared. Shared OneDrive folders and files shared in Teams (if linked to a personal OneDrive account) will also be deleted when the DTU account is closed, even if others have access to them.
 >
 > This can affect, for example, tabs added in a Teams channel that appear to be part of the group's shared space but are actually linked to a personal account.
->
-> If you're unsure whether your shared folders, notes, or Teams files are dependent on your personal account and might break when you leave, feel free to stop by our office or send us an e-mail at itsupport@biosustain.dtu.dk
->
-> We're happy to take a look with you.
+
+If you're unsure whether your shared folders, notes, or Teams files are dependent on your personal account and might break when you leave, send an email to itsupport@bright.dtu.dk.
 
 ### Auto-shutdown
 
 In the _Overview_ page (and within the submenu _Operations_) you will find _Auto-shutdown_. Enable it whenever possible.
 
-If your computation takes longer than a day, remember to turn it off for the time needed. When the work is done, I encourage re-enabling Auto-shutdown to mitigate unnecessary expenses.
+If your computation takes longer than a day, remember to temporarily turn it off for the time needed.
 
 ## Site-to-site VPN tunnel
 
@@ -292,7 +290,7 @@ sudo apt install cuda-drivers-565
 
 Now follow the post-installation actions: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
 
-I create a file at `/etc/profile.d/cuda.sh` and insert the environment variables there.
+For example, create a file at `/etc/profile.d/cuda.sh` and insert the environment variables there.
 
 Reboot the system and it should now be ready to use.
 
@@ -309,9 +307,9 @@ Systems that run 24/7 might follow slightly different guidelines, compared to sy
 
 In Linux, a package named `unattended-upgrades` helps with checking and installing updates. But its default configuration might be not optimal.
 
-I recommend checking and installing _security_ updates automatically, and enabling automatic reboots.
+It is recommended to automatically check for and install _security_ updates, and to enable automatic reboots.
 
-I create a file in _/etc/apt/apt.conf.d_.
+Create a file in _/etc/apt/apt.conf.d_:
 
 ```
 $ cat /etc/apt/apt.conf.d/51unattended-upgrades
@@ -374,12 +372,12 @@ When the release you use goes out of support, it is time to upgrade.
 
 By convention, systems expose SSH on port 22.
 
-If I am unable to connect to a system, I check that:
+If a system cannot be reached, check that:
 
 - the system is running
 - the SSH port is open
 
-On Linux, I test open ports with `nc`:
+On Linux, open ports can be tested with `nc`:
 
 ```
 $ nc -v -w 3 -z www.google.com 80
@@ -419,7 +417,7 @@ For public-facing systems, consider using solutions like _fail2ban_, which tempo
 ### More Bash history, enable timestamps
 
 ```
-$ vim /etc/profile.d/pasdom.sh
+$ vim /etc/profile.d/customizations.sh
 export HISTSIZE=10000
 export HISTFILESIZE=1000000000
 export HISTTIMEFORMAT='%F %T '
