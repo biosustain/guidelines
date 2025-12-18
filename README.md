@@ -90,6 +90,11 @@ Role _Role Based Access Control Administrator_ provides with the ability to add 
 
 The general recommendation is that a resource group should include only the people involved in most (if not all) of its resources.
 
+Learn more:
+
+- https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups
+- https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources
+
 > [!NOTE]
 > Current team-wide RGs will not necessarily be fully migrated into project-wide RGs.
 
