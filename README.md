@@ -277,6 +277,13 @@ That allows user _pasdom_ to execute `sudo docker logs` and `sudo docker ps`, wi
 > [!WARNING]
 > The Nvidia repositories might contain drivers for Debian that are not digitally signed. In that case, _secure boot_ must be disabled. The following will cause a VM restart: visit the Azure portal, navigate to the VM, _Overview_, _Security_ and remove the tick from _Enable secure boot_. Apply.
 
+The following instructions worked in 2025. In case of issues, I recommend reading:
+
+- https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/introduction.html
+- https://docs.nvidia.com/cuda/cuda-installation-guide-linux
+
+### Instructions
+
 ```
 sudo apt update
 sudo apt upgrade
