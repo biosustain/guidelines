@@ -48,7 +48,6 @@ Thanks also to Kasper Stener Petersen (kastpe@dtu.dk) for his contributions to s
 - Central DTU AD/Kerberos auth systems allow for using the DTU credentials
     - https://documentation.ubuntu.com/server/how-to/sssd/with-active-directory/
   - Scattered documentation for DTU: not easy to set up and maintain
-    - https://www.inside.dtu.dk/en/medarbejder/it-og-telefoni/it-systemer-og-retningslinjer/it-infrastruktur/active-directory/linux-guidelines
   - You might be unable to add AD users to the `sudo` group
   - Comes with integration for O-drive
   - It requires password-based login enabled in sshd
